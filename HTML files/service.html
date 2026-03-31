@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Elder Assist - Services</title>
+   <link rel="icon" href="/IMAGES/header logo.png" type="image/png">
+  <link rel="stylesheet" href="../CSS files/servicestyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@400;600&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+  <h1 id="mainHeading">Our Services</h1>
+  <button id="backBtn" class="back-btn hidden" onclick="goBack()">⬅ Back</button>
+
+  <div id="content" class="services"></div>
+
+</div>
+
+<script>
+
+let currentState = "services";
+let previousService = "";
+let previousServiceName = "";
+
+// SERVICES
+const services = [
+  {name: "Hospital", key: "hospital", img: "../images/hospital.png"},
+  {name: "Bank", key: "bank", img: "../images/bank.png"},
+  {name: "Govt Office", key: "govt", img: "../images/govoffice.png"},
+  {name: "Daily Help", key: "daily", img: "../images/dailyhelp.png"},
+  {name: "Companionship", key: "companion", img: "../images/companion.png"},
+  {name: "Travel Help", key: "travel", img: "../images/travelhelp.png"},
+  {name: "Digital Help", key: "digital", img: "../images/digitalhelp.png"},
+  {name: "Emergency", key: "emergency", img: "../images/emergency.png"}
+];
+
+// SUB SERVICES
+const subServiceData = {
+  hospital: ["Doctor Visit", "Emergency Visit", "Lab Test"],
+  bank: ["Account Work", "Cash Withdrawal", "Insurance Help"],
+  govt: ["Document Work", "ID Services", "Bill Payment"],
+  daily: ["Grocery Shopping", "Market Visit", "Bill Payment"],
+  companion: ["Walking Companion", "Talking Companion", "Event Companion"],
+  travel: ["Cab Assistance", "Train Help", "Airport Help"],
+  digital: ["Phone Help", "Online Payment", "App Usage"],
+  emergency: ["Hospital Emergency", "Urgent Help", "Quick Assistance"]
+};
+
+// GUIDES WITH IMAGES + RATINGS
+const guides = [
+  {name: "Rahul Sharma", exp: "2 yrs", rating: 4.5, img: "../IMAGES/guide1.png"},
+  {name: "Anjali Verma", exp: "3 yrs", rating: 4.2, img: "../IMAGES/guide4.png"},
+  {name: "Suresh Kumar", exp: "1 yr", rating: 4.0, img: "../IMAGES/guide2.png"},
+  {name: "Preeti Singh", exp: "4 yrs", rating: 4.8, img: "../IMAGES/guide5.png"},
+  {name: "Deepak Joshi", exp: "2 yrs", rating: 4.3, img: "../IMAGES/guide3.png"}
+];
+
+const content = document.getElementById("content");
+const heading = document.getElementById("mainHeading");
+const backBtn = document.getElementById("backBtn");
+
+// LOAD SERVICES
+function loadServices() {
+  currentState = "services";
+  backBtn.classList.add("hidden");
+
+  heading.innerText = "Our Services";
+  content.className = "services";
+  content.innerHTML = "";
+
+  services.forEach(s => {
+    const div = document.createElement("div");
+    div.className = "card bg-card";
+    div.style.backgroundImage = `url(${s.img})`;
+
+    div.innerHTML = `<p>${s.name}</p>`;
+    div.onclick = () => loadSubServices(s.key, s.name);
+
+    content.appendChild(div);
+  });
+}
+
+// LOAD SUB SERVICES
+function loadSubServices(key, name) {
+  currentState = "sub";
+  previousService = key;
+  previousServiceName = name;
+
+  backBtn.classList.remove("hidden");
+
+  heading.innerText = name + " Services";
+  content.className = "sub-services";
+  content.innerHTML = "";
+
+  subServiceData[key].forEach(sub => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `<p>${sub}</p>`;
+    div.onclick = () => loadGuides(sub);
+    content.appendChild(div);
+  });
+}
+
+// LOAD GUIDES
+function loadGuides(serviceName) {
+  currentState = "guides";
+  backBtn.classList.remove("hidden");
+
+  heading.innerText = "Available Guides " ;
+  content.className = "guides";
+  content.innerHTML = "";
+
+  guides.forEach(g => {
+    const div = document.createElement("div");
+    div.className = "guide-card";
+
+    div.innerHTML = `
+      <img src="${g.img}" class="guide-img">
+      <h3>${g.name}</h3>
+      <p>Experience: ${g.exp}</p>
+      <p class="rating">⭐ ${g.rating}</p>
+      <button onclick="openBooking('${g.name}')">Book Now</button>
+    `;
+
+    content.appendChild(div);
+  });
+}
+
+// BOOKING POPUP
+function openBooking(name) {
+  document.getElementById("popup").style.display = "flex";
+  document.getElementById("guideName").innerText = name;
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+// BACK BUTTON
+function goBack() {
+  if (currentState === "guides") {
+    loadSubServices(previousService, previousServiceName);
+  } else if (currentState === "sub") {
+    loadServices();
+  }
+}
+
+// INITIAL LOAD
+loadServices();
+
+</script>
+
+</script>
+
+</body>
+</html>

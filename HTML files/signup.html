@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Elder Assist Signup</title>
+<link rel="icon" href="/IMAGES/header logo.png" type="image/png">
+<link rel="stylesheet" href="../CSS files/signinstyle.css">
+<link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/CSS files/signupstyle.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>SIGN UP</h1>
+
+    <!-- OPTIONS -->
+    <div id="options">
+        <button onclick="selectOption('myself')"><img src="../IMAGES/myself.png">For Myself</button>
+        <button onclick="selectOption('parents')"><img src="../IMAGES/parent.png">For Parents</button>
+        <button onclick="selectOption('someone')"><img src="../IMAGES/people.png">For Someone</button>
+    </div>
+
+    <!-- FORM -->
+    <form id="formSection" style="display:none;">
+
+        <!-- BACK BUTTON -->
+        <button type="button" class="back-btn" onclick="goBack()">← Back</button>
+
+        <!-- USER DETAILS -->
+        <div class="form-block">
+            <h2>Your Details</h2>
+
+            <input type="text" placeholder="Full Name" required>
+            <input type="number" placeholder="Age" required>
+
+            <div class="gender">
+                <label><input type="radio" name="gender1"><img src="../IMAGES/male.png">Male</label>
+                <label><input type="radio" name="gender1"><img src="../IMAGES/female.png">Female</label>
+                <label><input type="radio" name="gender1"><img src="../IMAGES/others.png"> Other</label>
+            </div>
+
+             <input type="tel" placeholder="Phone Number" required>
+            <input type="email" placeholder="Email" required>
+           
+            <input type="text" placeholder="Area">
+            <input type="text" placeholder="City">
+            <input type="text" placeholder="State">
+          
+
+            <input type="password" placeholder="Create Password" required>
+        </div>
+
+        <!-- DEPENDENT DETAILS -->
+        <div id="dependentBlock" class="form-block" style="display:none;">
+            <h2>Dependent Details</h2>
+
+            <input type="text" placeholder="Full Name">
+            <input type="number" placeholder="Age">
+
+            <div class="gender">
+                <label><input type="radio" name="gender2"> Male</label>
+                <label><input type="radio" name="gender2"> Female</label>
+                <label><input type="radio" name="gender2"> Other</label>
+            </div>
+             
+             <input type="tel" placeholder="Phone Number" required>
+            <input type="email" placeholder="Email" required>
+
+            <input type="text" placeholder="Area">
+            <input type="text" placeholder="City">
+            <input type="text" placeholder="State">
+           
+           
+          
+        </div>
+
+        <button type="submit">Create Account</button>
+
+    </form>
+
+</div>
+
+<script>
+function selectOption(type){
+    document.getElementById("options").style.display = "none";
+    document.getElementById("formSection").style.display = "block";
+
+    if(type === "parents" || type === "someone"){
+        document.getElementById("dependentBlock").style.display = "block";
+    } else {
+        document.getElementById("dependentBlock").style.display = "none";
+    }
+}
+
+function goBack(){
+    document.getElementById("options").style.display = "block";
+    document.getElementById("formSection").style.display = "none";
+}
+</script>
+
+</body>
+</html>
