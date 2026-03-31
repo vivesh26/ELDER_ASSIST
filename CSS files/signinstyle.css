@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sansita Swashed', cursive;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Background Image */
+body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: linear-gradient(
+                rgba(88, 28, 135, 0.25),
+                rgba(168, 85, 247, 0.15)
+              ),
+              url("../IMAGES/elder\ assist\ logo.png") center/cover no-repeat;
+
+    filter: brightness(1.2) blur(0px);
+    z-index: -10;
+}
+
+/* Login Box */
+.login-box{
+    width: 350px;
+    padding: 35px;
+
+    background: rgba(205, 131, 234, 0.9);
+    border-radius: 25px;
+
+    box-shadow: 0 0 30px rgba(148, 79, 204, 0.5);
+
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(6, 3, 3, 0.1);
+
+    color: white;
+}
+
+/* Heading */
+.login-box h1{
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 35px;
+    color: #0b0114;
+    letter-spacing: 2px;
+}
+
+/* Labels */
+.login-box label{
+    font-size:25px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+/* Inputs */
+.login-box input{
+    width: 100%;
+    padding: 12px;
+
+    border: none;
+    outline: none;
+    border-radius: 8px;
+
+    background: rgba(20, 2, 2, 0.08);
+    color: rgb(0, 0, 0);
+
+    transition: 0.3s;
+}
+
+.login-box input::placeholder{
+    color: #000000;
+}
+
+.login-box input:focus{
+    background: rgba(73, 5, 62, 0.15);
+    box-shadow: 0 0 8px #5c14a0;
+}
+
+/* Button */
+.login-box button{
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: linear-gradient(135deg, #000000, #1f0535);
+    color: white;
+    font-size: 16px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #730dd3;
+}
+
+/* Signup Text */
+.signup-text{
+    margin-top: 18px;
+    text-align: center;
+    font-size: 14px;
+    color: #000000;
+}
+
+.signup-text a{
+    font-size:25px;
+    color: #010003;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-text a:hover{
+    text-decoration: underline;
+}

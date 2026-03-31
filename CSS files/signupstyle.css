@@ -1,0 +1,172 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sansita Swashed', cursive;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background */
+body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+     background: linear-gradient(
+                 rgba(88, 28, 135, 0.25),
+                 rgba(168, 85, 247, 0.15)
+              ), url("../IMAGES/elder\ assist\ logo.png") center/cover no-repeat;
+    filter: brightness(1.4) blur(0px);
+    z-index: -10;
+}
+
+/* Container */
+.container{
+    width: 380px;
+    padding: 25px;
+    border-radius: 15px;
+
+    background: rgba(30, 0, 40, 0.9);
+    box-shadow: 0 0 30px rgba(140, 0, 255, 0.4);
+
+    color: rgb(254, 254, 254);
+
+    max-height: 90vh;     /* ✅ enables scroll */
+    overflow-y: auto;     /* ✅ vertical scrollbar */
+}
+
+/* Heading */
+h1{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8443b5;
+}
+
+/* Option Buttons */
+#options button{
+    font-size: 24px;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    
+    border: none;
+    border-radius: 8px;
+
+    background: linear-gradient(135deg, #a855f7, #6b21a8);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#options button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #a855f7;
+}
+
+/* Back Button */
+.back-btn{
+    background: none;
+    border: none;
+    color: #c084fc;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.back-btn:hover{
+    text-decoration: underline;
+}
+
+/* Form Section Scroll (BEST UX) */
+#formSection{
+    max-height: 65vh;     /* ✅ form scroll area */
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* Form Blocks */
+.form-block{
+    margin-bottom: 20px;
+}
+
+.form-block h2{
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #c084fc;
+}
+
+/* Inputs */
+input{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+
+    border: none;
+    border-radius: 8px;
+
+    background: rgba(255,255,255,0.08);
+    color: white;
+}
+
+input::placeholder{
+    color: #bbb;
+}
+
+input:focus{
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 0 8px #a855f7;
+}
+
+/* Gender */
+.gender{
+    display: flex;
+    justify-content: space-around;
+    margin: 8px 0;
+}
+
+.gender label{
+    font-size: 16px;
+}
+
+/* Bigger radio buttons */
+.gender input[type="radio"]{
+    transform: scale(1.4);
+    margin-right: 6px;
+    accent-color: #a855f7;
+}
+
+/* Submit Button */
+form button{
+    width: 100%;
+    padding: 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: linear-gradient(135deg, #a855f7, #6b21a8);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #a855f7;
+}
+
+/* Scrollbar Styling */
+#formSection::-webkit-scrollbar {
+    width: 6px;
+}
+
+#formSection::-webkit-scrollbar-thumb {
+    background: pink;
+    border-radius: 10px;
+}
